@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zea Barber - Reservas</title>
+    
+    <link rel="icon" type="image/png" href="img/logo4.jpeg">
+    <link rel="apple-touch-icon" href="img/logo4.jpeg">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Zea Barber">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="header-container">
+        <div class="header-center">
+            <img src="img/logo2.png" alt="ZEA BARBER STUDIO" class="logo-text">
+        </div>
+    </div>
+</header>
+
+    <section class="hero-section">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="vid/fondo.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">ZEA BARBER STUDIO<sup>®</sup></h1>
+            <span class="hero-author">created by raul</span>
+            
+            <p class="hero-location">— LIMA · PERÚ —</p>
+            
+            <p class="hero-description">
+                Tu tiempo es valioso. Tu experiencia también.
+Por eso, en Zea Barber Studio trabajamos con citas, brindándote un espacio reservado y una atención pensada para quienes buscan algo diferente.
+            </p>
+
+            <a href="#step-12" class="btn-hero-reservar">RESERVAR CITA &rarr;</a>
+        </div>
+    </section>
+
+    <!-- CINTA / MARQUESINA INFINITA DE SERVICIOS -->
+    <div class="strip" aria-hidden="true" id="step-12">
+        <div class="track">
+            <span>Cambio de imagen <span class="dot">✦</span></span>
+            <span>Corte clásico <span class="dot">✦</span></span>
+            <span>Cortes Vip <span class="dot">✦</span></span>
+            <span>Servicios a domicilio <span class="dot">✦</span></span>
+            <span>Tratamientos <span class="dot">✦</span></span>
+            <span>Colorimetría <span class="dot">✦</span></span>
+            <span>Cambio de imagen <span class="dot">✦</span></span>
+            <span>Corte clásico <span class="dot">✦</span></span>
+            <span>Cortes Vip <span class="dot">✦</span></span>
+            <span>Servicios a domicilio <span class="dot">✦</span></span>
+            <span>Tratamientos <span class="dot">✦</span></span>
+            <span>Colorimetría <span class="dot">✦</span></span>
+        </div>
+    </div>
+
+    <main class="container">
+        <section id="step-1">
+            <h2 class="title">1. Selecciona tu Servicio</h2>
+            
+            <div class="list">
+                <div class="category-header" onclick="toggleCategory('cat-individuales')">
+                    <span>SERVICIOS INDIVIDUALES</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div id="cat-individuales" class="category-content">
+                    
+                    <div class="item-card" onclick="selectServicio(this, 'CLASICO', 20)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Clasico </h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold);text-transform: uppercase;font-size: 9px;display: block;margin-bottom: 4px;margin-top: 7px;">
+                                    Tradicional:</strong>
+                                • Ideal para Adulto Mayor o Escolar. 
+                                <br>
+                                <span class="service-duration"><i class="far fa-clock"></i> 35 min</span>
+                            </p>
+                            
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 20</span>
+                        
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'FADE', 25)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Fade </h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Un corte preciso y personalizado, adaptado a tu estilo:</strong>
+                                • Corte — cualquier tipo de degradado<br>
+                                • Lavado capilar — opcional  <br>
+                                • Bebida de cortesía   
+                               
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i>45 MIN</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 25</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'CORTE A TIJERA Y NAVAJA', 30)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Tijera y Navaja (Tendencias)</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">
+                                Estilos:</strong>
+                                • Mod Cup 
+                                • Wolf Cup 
+                                • Warrior Cup<br>
+                                • Shaggy
+                                • Pixie
+                                • Shaggy <br>
+                                (Incluye Lavado + Styling)
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 30</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'BARBA PREMIUM', 30)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Barba Premium</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">
+                                Un ritual de cuidado y definición pensado <br>para realzar tu estilo y cuidar cada detalle:</strong>
+                                • Diseño y perfilado de barba<br>
+                                • Toalla caliente<br>
+                                • Afeitado y definición de contornos<br>
+                                • Masaje facial<br>
+                                • Aplicación de aceite para barba <br>
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 30 MIN</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 30</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'ZEA BASIC', 30)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Zea Basic</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Experiencia Básica:</strong>
+                                • Corte (Estrutura)<br>
+                                • Lavado de Cabello incluido<br>
+                                • Diseño de Cejas<br>
+                                • Bebida de Cortesia<br>
+                               
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 30</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'ZEA SELECT', 35)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Zea Select</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Experiencia Pro:</strong>
+                                • Corte (Cualquier estilo)<br>
+                                • Asesoramiento de corte<br>
+                                • Lavado de Cabello incluido<br>
+                                • Masaje (Capilar)<br>
+                                • Parches Antifatigas<br>
+                                • Styling (Incluye producto de acabado)<br>
+                                • Bebida de Cortesia<br>
+                                
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr, 15 min</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 35</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'ESSENTIAL GROOMING', 40 )">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Essential Grooming</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Experiencia Premium:</strong>
+                                • Corte (Cualquier estilo)<br>
+                                • Diseño de Ceja<br>
+                                • Lavado de Cabello Includo <br>
+                                • Styling (Incluye producto de acabado)<br>
+                                • Kiss Express <br>
+                                • Mascarilla Expres(Dorado/Negro)<br>
+                                • Bebida cortesia (Cerveza/gaseosa)<br>
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr, 30 min</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 40</span>
+                    </div>
+
+                    <div class="item-card promo-gold" onclick="selectServicio(this, 'LIMPIEZA FACIAL COMPLETO', 49)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Limpieza Facial Completo</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Vaporización<br>
+                                • Exfoliación profunda<br>
+                                • Extracción de puntos negros y grasa<br>
+                                • Masajeador de hombros relajante<br>
+                                • Mascarilla (Arcilla o Black Mask)<br>
+                                • Vapor H2O Frío<br>
+                                • Serum<br>
+                                • Tónico hidratante facial<br>
+                                • Bloqueador Solar<br> 
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 49</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'PRESTIGE GROOMING', 50)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Prestige Grooming</h3>  
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">La Experiencia Máxima:</strong>
+                                • Todo lo del servicio Preium<br>
+                                • Barba completa con toalla caliente<br>
+                                • Bebida de cortesía (Agua/Gaseosa)<br>
+                                • Entretenimiento Play o Fulbito Mesa<br>
+                                • Masaje (Hombros)<br>    
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr, 30 min</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 50</span>
+                    </div>
+                </div>
+
+                <div class="category-header" onclick="toggleCategory('cat-promos')">
+                    <span>PROMOCIONES (VALIDO DE LUNES A VIERNES)</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div id="cat-promos" class="category-content">
+                    <div class="item-card" onclick="selectServicio(this, 'ZEA STANDARD', 25)">
+                            <div style="flex: 1;">
+                                <h3 style="margin-bottom: 8px;">Zea Standard </h3>
+                                <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                    <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Experiencia Standar:</strong>
+                                    • Corte (Mid Fade /Cualquier estilo)<br>
+                                    • Diseño de Cejas o Lavado de Cabello (Opcional)<br>
+                                    • Bebida de Cortesia<br>
+                                
+                                </p>
+                                <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                            </div>
+                            <span class="price" style="margin-left: 15px;">S/ 25</span>
+                    </div>    
+                    <div class="item-card promo-gold" onclick="selectServicio(this, 'Promo Zea', 30)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Promo Zea</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Corte (Cualquier estilo) + Barba<br>
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 30</span>
+                    </div>
+
+                    <div class="item-card promo-gold" onclick="selectServicio(this, 'CORTE & BARBA PREMIUM', 50)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Corte & Barba Premium</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Una experiencia completa de grooming diseñada <br>para cuidar cada detalle:</strong>
+                                • Corte personalizado — cualquier estilo<br>      
+                                • Lavado capilar<br>
+                                • Masaje capilar <br>
+                                • Ritual de barba con toalla caliente<br>       
+                                • Aplicación de aceite para barba 
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1hr ,30 min </span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 50</span>
+                    </div>
+
+                    <div class="item-card promo-gold" onclick="selectServicio(this, 'LUXURY GROOMING EXPERIENCE', 69)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Luxury Grooming Experience</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Incluye Limpieza Facial Completa:<br>      
+                                • Corte de Cabello (Cualquier estilo)<br>
+                                • Lavado de Cabello Includo <br>
+                                • Perfilado de Cejas<br>       
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 2 hr </span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 69</span>
+                    </div>
+                </div>
+
+                <div class="category-header" onclick="toggleCategory('cat-tinturacion')">
+                    <span>TINTURACIÓN</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div id="cat-tinturacion" class="category-content">
+                    <div class="item-card" onclick="selectServicio(this, 'CAMUFLAJE DE CANAS (PELO)', 45)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Camuflaje de Canas (Cabello)</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Efecto Natural:</strong>
+                                • Tinte exclusivo para hombres.<br>
+                                • Rejuvenece el cabello de forma progresiva.<br>
+                                • Resultado natural, sin cobertura total permanente.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 45</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'CAMUFLAJE DE CANAS (BARBA)', 35)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Camuflaje de Canas (Barba)</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Estilo y Juventud:</strong>
+                                • Cobertura sutil de canas en la barba.<br>
+                                • Se desvanece suavemente con los lavados.<br>
+                                • Duración aproximada de 4 a 6 semanas.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 35</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'PLATINADO', 150)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Platinado / Tendencia</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Cambio Total:</strong>
+                                • Decoloración global de alta protección.<br>
+                                • Matizado profesional para tonos grises o blancos.<br>
+                                • Incluye tratamiento post-color.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 3 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 150</span>
+                    </div>
+                </div>
+
+                <div class="category-header" onclick="toggleCategory('cat-extras')">
+                    <span>SERVICIOS EXTRAS</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div id="cat-extras" class="category-content">
+                    <div class="item-card" onclick="selectServicio(this, 'PERFILADO DE BARBA', 10)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Perfilado de Barba</h3>   
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 10</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'DEFINICIÓN DE CEJAS', 10)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Definición de Cejas</h3>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 10</span>
+                    </div>
+                    
+                    <div class="item-card" onclick="selectServicio(this, 'RITUAL DE BARBA', 30)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Ritual de Barba</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Perfilado de barba con toalla caliente <br>
+                                • Ideal para barbas gruesas o pieles sensible <br>
+                                • Aplicación de espuma de afeitar <br>
+                                • Tonico de Barbar <br>
+                                • Toalla Fria <br>
+                            </p>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 30</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'LAVADO Y STYLING', 10)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Lavado y Styling</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Lavado con productos profesionales.<br>
+                                • Styling con herramientas de alta calidad.
+                            </p>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 10</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'ONDULACIONES', 70)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Ondulaciones</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Previa Evaluación:</strong>
+                                • Tratamiento para dar textura y ondas al cabello.<br>
+                                • Incluye lavado y productos de protección.<br>
+                                • El precio final depende de la evaluación del cabello.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 2 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 70</span>
+                    </div>
+
+                    <div class="item-card" onclick="selectServicio(this, 'ALISADOS SEMIPERMANENTES', 60)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Alisados Semipermanentes</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Incluye:</strong>
+                                • Tratamiento completo de laciado profesional.<br>
+                                • Reduce el frizz y aporta brillo intenso.<br>
+                                • Acabado suave y manejable por semanas.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">S/ 60</span>
+                    </div>
+
+                </div>
+                <div class="category-header" onclick="toggleCategory('cat-domicilio')">
+                    <span>EXPERIENCIA VIP A DOMICILIO</span>
+                    <i class="fas fa-chevron-down arrow"></i>
+                </div>
+                <div id="cat-domicilio" class="category-content">
+                    <div class="item-card" onclick="selectServicio(this, 'CORTE A DOMICILIO', 50)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">Corte a Domicilio</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Por qué elegir nuestra Experiencia Premium:</strong>
+                                • Cero filas: Tu tiempo es oro. Estilismo de alto nivel en la comodidad de tu hogar u oficina<br>
+                                • Protocolo VIP: Sanitización rigurosa de herramientas antes de cada servicio.<br>
+                                • Asesoría de imagen: Diagnóstico capilar y corte diseñado 100% para ti.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 1 hr</span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 50</span>
+                
+                    </div>
+                    <div class="item-card" onclick="selectServicio(this, '2 CORTES A DOMICILIO', 75)">
+                        <div style="flex: 1;">
+                            <h3 style="margin-bottom: 8px;">2 Cortes a Domicilio</h3>
+                            <p style="font-size: 10px; line-height: 1.5; color: var(--gray);">
+                                <strong style="color: var(--gold); text-transform: uppercase; font-size: 9px; display: block; margin-bottom: 4px;">Por qué elegir nuestra Experiencia Premium:</strong>
+                                • Cero filas: Tu tiempo es oro. Estilismo de alto nivel en la comodidad de tu hogar u oficina<br>
+                                • Protocolo VIP: Sanitización rigurosa de herramientas antes de cada servicio.<br>
+                                • Asesoría de imagen: Diagnóstico capilar y corte diseñado 100% para ti.
+                            </p>
+                            <span class="service-duration"><i class="far fa-clock"></i> 2 hr </span>
+                        </div>
+                        <span class="price" style="margin-left: 15px;">Desde S/ 75</span>
+                    </div>
+                </div>
+                <!-- RESEÑA DE CLIENTES -->
+                <div class="category-header" onclick="toggleCategory('cat-resenas')">
+            <span>RESEÑAS</span>
+            <i class="fas fa-chevron-down arrow"></i>
+        </div>
+        <div id="cat-resenas" class="category-content">
+            
+            <!-- Reseña 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Carlos M.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Excelente atención y muy rápido el servicio. El corte quedó fino."
+                </p>
+                <span class="review-service">Servicio: Zea Standard</span>
+            </div>
+
+            <!-- Reseña 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Mateo R.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Muy buena atención, rápida y excelente el corte."
+                </p>
+                <span class="review-service">Servicio: Prestige Grooming</span>
+            </div>
+
+            <!-- Reseña 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Diego Vera</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star" style="color: 5#ccc;"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Buena atención y super rápido. El degradado quedó excelente."
+                </p>
+                <span class="review-service">Servicio: Promo Zea</span>
+            </div>
+
+            <!-- Reseña 4 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Gabriel S.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Muy buena atención y rapidez en el corte. Quedó idéntico a lo que pedí."
+                </p>
+                <span class="review-service">Servicio: Tijera y Navaja (Tendencias)</span>
+            </div>
+
+            <!-- Reseña 5 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Gonzalo P.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                         <i class="far fa-star" style="color: 5#ccc;"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Excelente atención, muy rápido y profesional."
+                </p>
+                <span class="review-service">Servicio: Limpieza Facial Completo</span>
+            </div>
+
+            <!-- Reseña 6 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Joaquín V.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Súper puntual, buena atención y muy rápido."
+                </p>
+                <span class="review-service">Servicio: Corte a Domicilio</span>
+            </div>
+
+            <!-- Reseña 7 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <h4>Renzo K.</h4>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="review-text">
+                    "Muy buena atención y servicio rápido. Totalmente recomendado."
+                </p>
+                <span class="review-service">Servicio: Luxury Grooming Experience</span>
+            </div>
+
+        </div>
+            </div>
+        </section>
+
+        <section id="step-2" class="hidden">
+            <h2 class="title">2. Fecha y Hora</h2>
+            <input type="date" id="reserva-fecha" onchange="cargarHorarios()">
+            <div id="grid-horas" class="grid-horas"></div>
+            <div class="horario-nota" style=" margin-bottom: 35px;"> <i class="fas fa-clock"></i>
+                <p><strong>Términos del Servicio:</strong> La atención solicitada previo al horario de apertura de la agenda o el incumplimiento en el último turno (09:00 PM) conllevan un recargo complementario de <br> <strong> S/. 5.00</strong> en caja.</p>
+            </div>
+        </section>
+
+        <section id="step-3" class="hidden">
+            <h2 class="title">3. Tus Datos</h2>
+            <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                <p style="margin: 0; color: var(--text-main);">🎁 <strong>Club Zea Barber:</strong> ¡Cada 5 servicios acumulas premios!</p>
+                <p style="margin: 5px 0 0 0; color: var(--accent); font-size: 11px;">⭐ Corte #20: ¡Participas automáticamente en el sorteo exclusivo de la barbería!<br>(Promociones válidas estrictamente de Lunes a Jueves)</p>
+            </div>
+            <input type="text" id="nombre-cliente" placeholder="Tu Nombre">
+            <input type="tel" id="tel-cliente" placeholder="WhatsApp (9 dígitos)" maxlength="9">
+            <button class="btn-main" onclick="guardarCita()"style="margin-bottom: 35px;">AGENDAR CITA</button>
+        </section>
+    </main>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="js/app.js"></script>
+    <div id="custom-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 id="modal-title">¡Cita Registrada!</h2>
+            <p id="modal-corte-count"></p>
+            <p id="modal-faltan-count" class="faltan-msg"></p>
+            <button onclick="cerrarYRedirigir()" class="btn-modal">CONFIRMAR CITA</button>
+        </div>
+    </div>
+    <!-- FOOTER INSPIRADO EN LA REFERENCIA -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- LOGO Y DESCRIPCIÓN -->
+            <div class="footer-brand">
+                <img src="img/logo2.png" alt="ZEA BARBER STUDIO" class="footer-logo">
+                <p class="footer-description">
+                    Studio privado de barbería de alto nivel en Lima — Perú. Cambios de imagen y cortes clásicos de precisión que revelan tu mejor versión.
+                </p>
+            </div>
+
+            <!-- NAVEGACIÓN -->
+            <div class="footer-section">
+                <h4 class="footer-title">NAVEGACIÓN</h4>
+                <ul class="footer-links">
+                    <li><a href="#step-12">Servicios</a></li>
+                </ul>
+            </div>
+
+            <!-- SÍGUENOS -->
+            <div class="footer-section">
+                <h4 class="footer-title">SÍGUENOS</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.tiktok.com/@zea_studio1?_r=1&_t=ZS-98QgLXTR5rJ" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TikTok @zea_studio1</a></li>
+                    <li><a href="https://www.instagram.com/zea.barber.studio1?utm_source=qr" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram @zea.barber.studio1</a></li>
+                    <li><a href="https://www.facebook.com/share/19BScdkgyK/?mibextid=wwXIfr" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a></li>
+                </ul>
+            </div>
+
+            <!-- COPYRIGHT -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 ZEA BARBER STUDIO<sup>®</sup>. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zea Barber - Admin Pro</title>
+
+    <link rel="icon" type="image/png" href="img/logo4.jpeg">
+
+    <link rel="apple-touch-icon" href="img/logo4.jpeg">
+
+    <meta name="theme-color" content="#0a0a0a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="ZEA STUDIO">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <div id="login-container">
+        <div class="login-card">
+            <h2>ZEA BARBER <span>- ADMIN</span></h2>
+            <p>Acceso Exclusivo Barberos</p>
+            <input type="password" id="admin-pass" class="login-input" placeholder="••••" maxlength="4">
+            <button onclick="validarAcceso()" class="btn-login">Entrar</button>
+            <p id="login-error" style="color:#dc3545; display:none; margin-top:10px; font-size:12px;">Clave incorrecta</p>
+        </div>
+    </div>
+    
+    <div id="admin-panel" style="display: none;">
+        
+        <header class="header">
+        <div class="header-container">
+            <div class="header-center">
+                <img src="img/logo3.png" alt="ZEA BARBER STUDIO" class="logo-text">
+            </div>
+        </div>
+    </header>
+
+
+        <main class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div style="font-size:10px; color:#888;">Cortes</div>
+                    <div id="total-cortes" style="font-size:24px; font-weight:700;">0</div>
+                </div>
+                <div class="stat-card">
+                    <div style="font-size:10px; color:#888;">Soles</div>
+                    <div id="total-ganancia" style="font-size:24px; font-weight:700; color:var(--success);">S/ 0</div>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button onclick="cambiarTab('dia')" id="tab-dia" class="tab-btn active">DÍA</button>
+                <button onclick="cambiarTab('semana')" id="tab-semana" class="tab-btn">SEMANA</button>
+                <button onclick="cambiarTab('mes')" id="tab-mes" class="tab-btn">MES</button>
+            </div>
+
+            <input type="date" id="filtro-admin" class="date-input" onchange="verCitas()">
+            <div id="lista-citas"></div>
+        </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <script src="js/admin-logic.js"></script>
+</body>
+</html>

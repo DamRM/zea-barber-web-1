@@ -1,0 +1,773 @@
+:root {
+    --bg: #f4f6f8;             /* Fondo gris claro suave */
+    --card: #ffffff;           /* Fondo de tarjetas blanco */
+    --accent: #3b66f5;         /* Azul eléctrico / cobalto de los precios y acentos */
+    --accent-hover: #2f52d4;   /* Azul ligeramente más oscuro para hovers/clics */
+    --text-main: #0b1e36;      /* Azul oscuro profundo para títulos y textos principales */
+    --text-muted: #6b7280;     /* Gris suave para textos secundarios, descripciones y tiempos */
+    --border-color: #e5e7eb;   /* Bordes limpios y sutiles */
+}
+
+/* RESETS Y COMPORTAMIENTO */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; 
+}
+
+* { 
+    box-sizing: border-box; 
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding-bottom: 0; /* <--- AQUÍ: cámbialo a 0 */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   HEADER FLOTANTE
+   ========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 15px 0;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.4s ease, border-color 0.4s ease, padding 0.3s ease;
+}
+
+/* Estado al hacer Scroll: Fondo Blanco Limpio */
+.header.scrolled {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-text {
+    height: 40px; 
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: height 0.3s ease;
+}
+
+.header.scrolled .logo-text {
+    height: 40px;
+    filter: none;
+}
+
+.admin-label {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+/* AJUSTE PARA CELULARES */
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 0;
+    }
+    .logo-text {
+        height: 50px; 
+    }
+    .header.scrolled .logo-text {
+        height: 40px;
+    }
+}
+
+.container { 
+    padding: 20px; 
+    max-width: 480px; 
+    margin: auto; 
+}
+
+.title { 
+    font-size: 13px; 
+    text-transform: uppercase; 
+    color: var(--accent); 
+    letter-spacing: 2.5px; 
+    margin: 25px 0 15px;
+    font-weight: 700;
+    border-left: 3px solid var(--accent);
+    padding-left: 12px;
+}
+
+/* DISEÑO TARJETA MINIMALISTA */
+.card-dark {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    animation: fadeIn 0.5s ease;
+}
+
+/* ACORDEONES */
+.category-header {
+    background: #ffffff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-main);
+    font-weight: 700;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+
+.category-header:active { transform: scale(0.98); }
+
+.category-content { 
+    display: none; 
+    margin-top: 10px;
+    padding: 5px 0;
+}
+
+.category-content.show { 
+    display: block; 
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* ITEMS */
+.item-card {
+    background: #ffffff; 
+    border: 1px solid var(--border-color); 
+    padding: 18px; 
+    border-radius: 15px;
+    margin-bottom: 12px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.item-card:hover { border-color: var(--accent); }
+.item-card.active { 
+    border-color: var(--accent); 
+    background: #f0f4ff; 
+    box-shadow: 0 4px 12px rgba(59, 102, 245, 0.12);
+}
+
+.item-card h3 { 
+    font-size: 15px; 
+    margin: 0; 
+    font-weight: 700; 
+    color: var(--text-main); 
+}
+
+.item-card p { 
+    font-size: 12px; 
+    margin: 4px 0 0; 
+    color: var(--text-muted); 
+}
+
+.price { 
+    color: var(--accent); 
+    font-weight: 800; 
+    font-size: 16px; 
+}
+
+/* GRID HORAS */
+.grid-horas { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 12px; 
+    margin-top: 20px; 
+}
+
+.hora-btn { 
+    padding: 15px 5px; 
+    background: #ffffff; 
+    border: 1px solid var(--border-color); 
+    color: var(--text-main); 
+    border-radius: 12px; 
+    text-align: center; 
+    font-size: 14px; 
+    font-weight: 600;
+    cursor: pointer; 
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.hora-btn.selected { 
+    background: var(--accent); 
+    color: #ffffff; 
+    font-weight: 700; 
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 102, 245, 0.3);
+}
+
+/* Estilo para horas ocupadas */
+.hora-btn.ocupado,
+.hora-btn.busy, 
+.hora-btn:disabled { 
+    background: #eef1f6 !important;
+    color: #9ca3af !important;
+    border: 1px solid #e5e7eb !important;
+    opacity: 0.6;
+    pointer-events: none;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.hora-btn.ocupado:hover,
+.hora-btn.busy:hover,
+.hora-btn:disabled:hover {
+    background: #eef1f6 !important;
+    color: #9ca3af !important;
+}
+
+/* FORMULARIO */
+input { 
+    width: 100%; 
+    padding: 18px; 
+    background: #ffffff; 
+    border: 1px solid var(--border-color); 
+    color: var(--text-main); 
+    border-radius: 12px; 
+    margin-bottom: 15px; 
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+input:focus { 
+    border-color: var(--accent); 
+    box-shadow: 0 0 0 3px rgba(59, 102, 245, 0.15);
+}
+
+.btn-main { 
+    width: 100%; 
+    background: var(--accent); 
+    color: #ffffff; 
+    border: none; 
+    padding: 20px; 
+    font-weight: 700; 
+    border-radius: 15px; 
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+    margin-top: 10px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(59, 102, 245, 0.25);
+}
+
+.btn-main:active { transform: scale(0.98); background: var(--accent-hover); }
+
+/* ANIMACIONES */
+.arrow { 
+    transition: transform 0.3s ease; 
+    color: var(--accent);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hidden { display: none; opacity: 0; }
+.section-visible { display: block !important; opacity: 1 !important; }
+
+/* Estilos del Modal Moderno */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(11, 30, 54, 0.6);
+    backdrop-filter: blur(6px);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    max-width: 350px;
+    width: 100%;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-icon {
+    font-size: 50px;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.modal-card h2 {
+    margin: 0 0 10px;
+    color: var(--text-main);
+    font-size: 22px;
+}
+
+.modal-card p {
+    margin: 5px 0;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+.faltan-msg {
+    color: var(--accent) !important;
+    font-weight: 600;
+    margin-top: 10px !important;
+}
+
+.btn-modal {
+    margin-top: 30px;
+    width: 100%;
+    background: var(--accent);
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+@keyframes modalPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ESTILO PARA EL TIEMPO DE DURACIÓN */
+.service-duration {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px; 
+    color: var(--text-muted);     
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.service-duration i {
+    color: var(--accent); 
+    font-size: 11px;
+}
+
+/* NOTA DE HORARIOS EXTRAORDINARIOS */
+.horario-nota {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    animation: fadeIn 0.5s ease;
+}
+
+.horario-nota i {
+    color: var(--accent);
+    font-size: 18px;
+    margin-top: 3px;
+}
+
+.horario-nota p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.horario-nota strong {
+    color: var(--text-main);
+}
+
+/* ==========================================
+   SECCIÓN HERO (ESTILO REFERENCIA APLICADO)
+   ========================================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    min-height: 94dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px 40px;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: #0b111e;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 15, 25, 0.65);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TÍTULO PRINCIPAL */
+.hero-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1.15;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-title sup {
+    font-size: 13px;
+    font-weight: 400;
+    vertical-align: super;
+    margin-left: 2px;
+}
+
+/* SUBTÍTULO AUTHOR */
+.hero-author {
+    display: block;
+    color: #cbd5e1;
+    font-size: 13px;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+/* UBICACIÓN */
+.hero-location {
+    color: #60a5fa;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* DESCRIPCIÓN */
+.hero-description {
+    color: #e2e8f0;
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    font-weight: 300;
+    max-width: 380px;
+}
+
+/* BOTÓN DE RESERVA COMPACTO */
+.btn-hero-reservar {
+    display: inline-block;
+    width: auto;
+    background-color: #2f68f6;
+    color: #ffffff;
+    padding: 14px 28px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-radius: 2px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 15px rgba(47, 104, 246, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-hero-reservar:hover,
+.btn-hero-reservar:active {
+    background-color: #1e52d8;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 23px;
+    }
+    .hero-description {
+        font-size: 12.5px;
+    }
+    .btn-hero-reservar {
+        padding: 12px 22px;
+        font-size: 11px;
+    }
+}
+
+/* ==========================================
+   CINTA / MARQUESINA INFINITA
+   ========================================== */
+.strip {
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    user-select: none;
+}
+
+.strip .track {
+    display: flex;
+    gap: 30px;
+    animation: marquee 25s linear infinite;
+}
+
+.strip span {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-main);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.strip .dot {
+    color: var(--accent);
+    font-size: 10px;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+/* ==========================================
+   FOOTER (ESTILO REFERENCIA - AZUL NOCTURNO)
+   ========================================== */
+.site-footer {
+    background-color: #060b14;
+    color: #94a3b8;
+    padding: 50px 24px 40px;
+    
+    /* Elimina cualquier margen externo que genere bordes/líneas blancas */
+    margin: 0 !important; 
+    
+    /* Asegura que ocupe todo el ancho de la pantalla sin importar dónde esté ubicado */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    
+    box-sizing: border-box;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+    max-width: 440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alineado a la izquierda como la imagen */
+    gap: 32px;
+    text-align: left;
+}
+
+/* LOGO Y MARCA */
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+}
+
+.footer-logo {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Mantiene el logo en blanco puro */
+}
+
+.footer-description {
+    color: #cbd5e1;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 300;
+}
+
+/* SECCIONES Y TITULARES */
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.footer-title {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* LISTA DE ENLACES */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links li a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 400;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links li a i {
+    font-size: 14px;
+    color: #60a5fa;
+}
+
+.footer-links li a:hover,
+.footer-links li a:active {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+/* BOTTOM / COPYRIGHT */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.footer-bottom p {
+    font-size: 11px;
+    color: #64748b;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+/* ESTILOS PARA LAS RESEÑAS */
+.review-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.review-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.stars {
+    color: var(--gold, #f59e0b); /* Usa tu color dorado */
+    font-size: 11px;
+}
+
+.review-text {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--gray, #64748b);
+    margin: 0 0 8px 0;
+}
+
+.review-service {
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 500;
+    display: block;
+}
